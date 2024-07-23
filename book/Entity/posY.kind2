@@ -11,12 +11,16 @@
 ///
 /// A list of shapes representing the drawn Planet
 
-draw
-- planet: Planet
-: (List Shape)
+posY
+- entity: Entity
+: U48
 
-match planet {
-  Planet/new:
-    let pos = (V2/div planet.pos (V2/new 1000 1000))
-    [(Shape/xshape pos)]
+
+match entity {
+  Entity/new:
+    match entity.pos {
+      V2/new:
+        entity.pos.y
+    }
 }
+
